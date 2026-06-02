@@ -20,6 +20,16 @@
       {
         do something with i;
         i++;                        # update the `i` inside the loop
+
+        if (condition)
+        {
+          break;                    # break the loop
+        }
+
+        if (condition)
+        {
+          continue;                 # skip the rest of the loop and start the next iteration
+        }
       }
       ```
  
