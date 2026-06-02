@@ -5,4 +5,4 @@ project(practice_cpp)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(practice_cpp src/main.cpp)
+add_executable(lesson01_hello_world lessons/01_hello_world/main.cpp)
