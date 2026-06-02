@@ -9,4 +9,4 @@ add_executable(lesson01_hello_world lessons/01_hello_world/main.cpp)
 add_executable(lesson02_variables lessons/02_variables/main.cpp)
 add_executable(lesson03_console_input lessons/03_console_input/main.cpp)
 add_executable(lesson04_operators lessons/04_operators/main.cpp)
-
+add_executable(lesson05_conditionals lessons/05_conditionals/main.cpp)
