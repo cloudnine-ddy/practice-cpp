@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(lesson01_hello_world lessons/01_hello_world/main.cpp)
+add_executable(lesson02_variables lessons/02_variables/main.cpp)
