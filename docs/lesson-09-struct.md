@@ -1,10 +1,10 @@
-# Lesson 08 - Vector, String, Simple Type Casting
+# Lesson 09 - Struct
 
 ## What I learned
 
 - Some Syntax of C++:
 
-    - Syntax of struct declaration:
+    - Syntax of struct definition:
       ```
       struct struct_name
       {
