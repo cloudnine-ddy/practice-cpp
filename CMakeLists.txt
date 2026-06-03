@@ -17,3 +17,8 @@ add_executable(lesson09_struct lessons/09_struct/main.cpp)
 add_executable(lesson10_class lessons/10_class/main.cpp)
 add_executable(lesson11_const_references lessons/11_const_references/main.cpp)
 add_executable(lesson12_pointers lessons/12_pointers/main.cpp)
+
+add_executable(lesson13_header_source
+    lessons/13_header_source/main.cpp
+    lessons/13_header_source/student.cpp
+)
