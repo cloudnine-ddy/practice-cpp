@@ -22,3 +22,5 @@ add_executable(lesson13_header_source
     lessons/13_header_source/main.cpp
     lessons/13_header_source/student.cpp
 )
+
+add_executable(lesson14_file_io lessons/14_file_io/main.cpp)
