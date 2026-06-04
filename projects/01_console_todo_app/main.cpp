@@ -1,6 +1,7 @@
 # include <iostream>
 # include <string>
 # include <vector>
+# include <sstream>
 
 struct task {
 	std::string taskTitle;
@@ -50,24 +51,29 @@ int main() {
 
 	while (true) {
 
+		std::string userInput;
 		int selection;
 
 		print_menu();
 
-		std::cin >> selection;
+		std::getline(std::cin, userInput);
 
-		if (selection == 1) {
-			list_todo(taskList);
-		}
-		else if (selection == 2) {
-			add_todo(taskList);
-		}
-		else if (selection == 3) {
-			break;
-		}
-		else {
-			std::cout << "Invalid input please try again!";
-			std::cout << std::endl;
+		std::stringstream filteredInput(userInput);
+
+		if (filteredInput >> selection) {
+			if (selection == 1) {
+				list_todo(taskList);
+			}
+			else if (selection == 2) {
+				add_todo(taskList);
+			}
+			else if (selection == 3) {
+				break;
+			}
+			else {
+				std::cout << "Invalid input please try again!";
+				std::cout << std::endl;
+			}
 		}
 	}
 
