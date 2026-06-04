@@ -1,7 +1,11 @@
 # include <iostream>
 # include <string>
+# include <vector>
 
-
+struct task {
+	std::string taskTitle;
+	bool taskStatus;
+};
 
 void print_menu() {
 	std::cout << std::endl;
@@ -13,17 +17,37 @@ void print_menu() {
 	std::cout << "Your Selection: ";
 }
 
-void add_todo() {
+void add_todo(std::vector<task> list) {
+
+	task currentTask;
+	std::string currentTaskTitle;
+	bool currentTaskStatus;
+
 	std::cout << std::endl;
-	std::cout << "adding todo" << std::endl;
+
+	std::cout << "Please enter the title of task: ";
+	std::getline(std::cin, currentTaskTitle);
+
+	currentTask.taskTitle = currentTaskTitle;
+	currentTask.taskStatus = false;
+
+	list.push_back(currentTask);
 }
 
-void list_todo() {
+void list_todo(std::vector<task> list) {
 	std::cout << std::endl;
-	std::cout << "listing todo" << std::endl;
+
+	std::cout << "Current Tasks: " << std::endl;
+
+	for (task eachTask : list) {
+		std::cout << eachTask.taskTitle << std::endl;
+	}
 }
 
 int main() {
+
+	std::vector<task> taskList;
+
 	while (true) {
 
 		int selection;
@@ -33,10 +57,10 @@ int main() {
 		std::cin >> selection;
 
 		if (selection == 1) {
-			list_todo();
+			list_todo(taskList);
 		}
 		else if (selection == 2) {
-			add_todo();
+			add_todo(taskList);
 		}
 		else if (selection == 3) {
 			break;
