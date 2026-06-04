@@ -24,3 +24,7 @@ add_executable(lesson13_header_source
 )
 
 add_executable(lesson14_file_io lessons/14_file_io/main.cpp)
+
+add_executable(console_todo_app
+    projects/01_console_todo_app/main.cpp
+)
