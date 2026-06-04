@@ -18,11 +18,10 @@ void print_menu() {
 	std::cout << "Your Selection: ";
 }
 
-void add_todo(std::vector<task> list) {
+void add_todo(std::vector<task>& list) {
 
 	task currentTask;
 	std::string currentTaskTitle;
-	bool currentTaskStatus;
 
 	std::cout << std::endl;
 
@@ -35,13 +34,24 @@ void add_todo(std::vector<task> list) {
 	list.push_back(currentTask);
 }
 
-void list_todo(std::vector<task> list) {
+void list_todo(const std::vector<task>& list) {
+
 	std::cout << std::endl;
 
 	std::cout << "Current Tasks: " << std::endl;
 
-	for (task eachTask : list) {
-		std::cout << eachTask.taskTitle << std::endl;
+	for (std::size_t i = 0; i< list.size(); i++) {
+
+		std::string status;
+
+		if (list[i].taskStatus == 1) {
+			status = "Done";
+		}
+		else {
+			status = "Not Done Yet";
+		}
+
+		std::cout << i+1 << ". " << list[i].taskTitle << "          " << status << std::endl;
 	}
 }
 
