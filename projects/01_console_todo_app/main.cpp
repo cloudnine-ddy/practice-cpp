@@ -20,6 +20,7 @@ void save (const std::vector<task>& list, const std::string& filename) {
 
 	if (!outputFile) {
 		std::cout << "Fail to load file for writing" << std::endl;
+		return;
 	}
 
 	for (const task& task : list)
@@ -27,6 +28,39 @@ void save (const std::vector<task>& list, const std::string& filename) {
 		outputFile << task << '\n';
 	}
 
+}
+
+std::vector<task> load(std::string filename) {
+
+	std::vector<task> list;
+
+	std::ifstream inputFile(filename);
+
+	if (!inputFile) {
+		std::cout << "Failed to open file for reading" << std::endl;
+		return list;
+	}
+
+	std::string line;
+
+	while (std::getline(inputFile, line)) {
+		if (!line.empty()) {
+
+			task currentTask;
+
+			std::stringstream ss(line);
+			std::string status;
+
+			std::getline(ss, currentTask.taskTitle, ',');
+			std::getline(ss, status);
+
+			currentTask.taskStatus = (status == "1");
+
+			list.push_back(currentTask);
+		}
+	}
+
+	return list;
 }
 
 void print_menu() {
@@ -125,8 +159,10 @@ void mark_done(std::vector<task>& list) {
 
 int main() {
 
-	const std::string filename = "build/project01_console_todo_app.txt";
+	const std::string filename = "project01_console_todo_app.txt";
 	std::vector<task> taskList;
+
+	taskList = load(filename);
 
 	while (true) {
 
@@ -147,10 +183,10 @@ int main() {
 				add_todo(taskList);
 			}
 			else if (selection == 0) {
+				save(taskList, filename);
 				break;
 			}
 			else if (selection == 3) {
-				save(taskList, filename);
 				mark_done(taskList);
 			}
 			else {
