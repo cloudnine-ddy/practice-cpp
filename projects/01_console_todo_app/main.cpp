@@ -141,12 +141,15 @@ void mark_done(std::vector<task>& list) {
 
 	if (filteredInput >> taskIndex) {
 
-		taskIndex = taskIndex - 1;
+		if (taskIndex < 1 || taskIndex > static_cast<int>(list.size())) {
 
-		if (taskIndex > list.size()) {
+			std::cout << std::endl;
 			std::cout << "No task with number " << taskIndex << " exist!" << std::endl;
 			return;
 		}
+
+		taskIndex = taskIndex - 1;
+
 		if (list[taskIndex].taskStatus == 1) {
 			std::cout << "This task has been done!" << std::endl;
 			return;

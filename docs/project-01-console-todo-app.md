@@ -39,6 +39,15 @@
     so when we try to load the data, we use stringstream to split them!
     and save them accordingly!
 
+- a negative number (user input) can be taken as a very huge positive number,
+  if we compare it to a `size_t` datatype.
+  so what we do?
+  we convert the size data into an integer before the comparison!
+  like:
+  ```
+  userInput > static_cast<int>(list.size())
+  ```
+
 ## Result
 
 - NIL
