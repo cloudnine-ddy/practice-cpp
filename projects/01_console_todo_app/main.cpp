@@ -2,11 +2,32 @@
 # include <string>
 # include <vector>
 # include <sstream>
+# include <fstream>
 
 struct task {
 	std::string taskTitle;
 	bool taskStatus;
 };
+
+std::ostream& operator<<(std::ostream& os, const task& t) {
+	os << t.taskTitle << "," << t.taskStatus;
+	return os;
+}
+
+void save (const std::vector<task>& list, const std::string& filename) {
+
+	std::ofstream outputFile(filename);
+
+	if (!outputFile) {
+		std::cout << "Fail to load file for writing" << std::endl;
+	}
+
+	for (const task& task : list)
+	{
+		outputFile << task << '\n';
+	}
+
+}
 
 void print_menu() {
 	std::cout << std::endl;
@@ -104,6 +125,7 @@ void mark_done(std::vector<task>& list) {
 
 int main() {
 
+	const std::string filename = "build/project01_console_todo_app.txt";
 	std::vector<task> taskList;
 
 	while (true) {
@@ -128,6 +150,7 @@ int main() {
 				break;
 			}
 			else if (selection == 3) {
+				save(taskList, filename);
 				mark_done(taskList);
 			}
 			else {
