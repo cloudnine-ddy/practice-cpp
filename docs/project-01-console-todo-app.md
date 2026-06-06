@@ -25,6 +25,19 @@
   ```
   if (filteredInput >> selection) {          # selection here is defined as int
   ```
+  
+
+- the use of `std::stringstream()`
+  ```
+  std::stringstream ss(line);
+  std::string status;
+
+  std::getline(ss, currentTask.taskTitle, ',');
+  std::getline(ss, status);
+  ```
+  - since we try to save the data and split them using ','
+    so when we try to load the data, we use stringstream to split them!
+    and save them accordingly!
 
 ## Result
 
