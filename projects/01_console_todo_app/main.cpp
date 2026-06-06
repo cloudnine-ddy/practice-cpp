@@ -69,6 +69,7 @@ void print_menu() {
 	std::cout << "1. List todos" << std::endl;
 	std::cout << "2. Add todo" << std::endl;
 	std::cout << "3. Mark todo as done" << std::endl;
+	std::cout << "4. Remove todo" << std::endl;
 	std::cout << "0. Exit" << std::endl;
 	std::cout << std::endl;
 	std::cout << "Your Selection: ";
@@ -160,6 +161,40 @@ void mark_done(std::vector<task>& list) {
 	}
 }
 
+void remove_todo(std::vector<task>& list) {
+
+	std::cout << std::endl;
+
+	list_todo(list);
+
+	std::cout << std::endl;
+	std::cout << "Which task you would like to remove: ";
+
+	std::string userInput;
+	int taskIndex;
+
+	std::getline(std::cin, userInput);
+
+	std::stringstream filteredInput(userInput);
+
+	if (filteredInput >> taskIndex) {
+
+		if (taskIndex < 1 || taskIndex > static_cast<int>(list.size())) {
+
+			std::cout << std::endl;
+			std::cout << "No task with number " << taskIndex << " exist!" << std::endl;
+			return;
+		}
+
+		taskIndex = taskIndex - 1;
+
+		list.erase(list.begin() + taskIndex);
+
+		std::cout << std::endl;
+
+		std::cout << "Task has been removed!" << std::endl;
+	}
+}
 int main() {
 
 	const std::string filename = "project01_console_todo_app.txt";
@@ -191,6 +226,9 @@ int main() {
 			}
 			else if (selection == 3) {
 				mark_done(taskList);
+			}
+			else if (selection == 4) {
+				remove_todo(taskList);
 			}
 			else {
 				std::cout << "Invalid input please try again!";

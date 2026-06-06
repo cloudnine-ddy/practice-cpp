@@ -48,6 +48,10 @@
   userInput > static_cast<int>(list.size())
   ```
 
+- remove an item in vector
+  `list.erase(list.begin() + userInputIndex);`
+  
+
 ## Result
 
 - NIL
