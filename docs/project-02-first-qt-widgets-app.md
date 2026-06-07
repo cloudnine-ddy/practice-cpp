@@ -52,6 +52,28 @@
       QObject::connect(who_send_the signal, the_signal, what_to_do {} );
       ```
 
+- ```QLabel label("Welcome to Qt!", &window);```
+  used to show words
+
+- ```
+  QVBoxLayout layout(&window);
+  layout.addWidget(&label);
+  layout.addWidget(&button);
+  ```
+  - V stand for vertical
+  - similar to CSS, we create a container and then add our widgets in!
+    
+
+
+- ```
+  QObject::connect(&button2, &QPushButton::clicked, [&label] {
+      label.setText("Button clicked");
+  });
+  ```
+  - that's how we change the text of a label
+
+
+
 
 ## Result
 
