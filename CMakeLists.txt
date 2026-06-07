@@ -28,3 +28,13 @@ add_executable(lesson14_file_io lessons/14_file_io/main.cpp)
 add_executable(console_todo_app
     projects/01_console_todo_app/main.cpp
 )
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+
+add_executable(project02_first_qt_widgets_app
+    projects/02_first_qt_widgets_app/src/main.cpp
+)
+
+target_link_libraries(project02_first_qt_widgets_app
+    PRIVATE Qt6::Widgets
+)
