@@ -39,6 +39,18 @@
   - `&window` define the button as a sub-component of the window
   - `move` will move the button to the x and y axis in the window
 
+- ```
+    QObject::connect(&button, &QPushButton::clicked, [&window]() {
+        QMessageBox::information(&window, "Hello", "You Clicked the button!");
+    });
+  ```
+  - in Qt, the concept of signal and slot is important
+  - `QObject` is the slope which connect the signal and slot!
+  - in the code above, what it does is:
+    - if the button is clicked, execute the code in {}
+      ```
+      QObject::connect(who_send_the signal, the_signal, what_to_do {} );
+      ```
 
 
 ## Result
